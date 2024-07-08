@@ -1,6 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 function Movieform() {
+
+  const [movieName, setMovieName] = useState('')
+  const [movieRating, setMovieRating] = useState()
+  const [movieDuration, setMovieDuration] = useState('')
+
+  const formSubmitHandler = e => {
+    e.preventDefault()
+  }
+
+  console.log('MovieForm')
 
   return (
     <section>
