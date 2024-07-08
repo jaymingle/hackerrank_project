@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css'
 import 'h8k-components'
 
@@ -26,6 +26,9 @@ const DATA = [
 
 function App() {
 
+  const [movies, setMovies] = useState(DATA)
+  console.log(movies)
+
   return (
     <div>
       <h8k-navbar header={ title } />
@@ -35,7 +38,7 @@ function App() {
         </div>
         <div className='layout-column w-30'>
           <Search />
-          <Movieslist /> 
+          <Movieslist movies={movies} />
           <div data-testid='noResult'>
             <h3 className='text-center'>No Results Found</h3>
           </div>

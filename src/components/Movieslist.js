@@ -1,6 +1,9 @@
 import React from 'react'
 
-function Movieslist() {
+function Movieslist({movies}) {
+
+    console.log('Movies List', movies)
+
   return (
     <section>
       <ul 
