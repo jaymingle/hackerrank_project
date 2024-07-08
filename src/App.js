@@ -11,19 +11,19 @@ const DATA = [
     id: 1,
     name: 'The Godfather',
     rating: 95,
-    duration: '3 hours'
+    duration: '3h'
   },
   {
     id: 2,
     name: 'Friends',
     rating: 90,
-    duration: '16 hours'
+    duration: '16h'
   },
   {
     id: 3,
     name: 'Tom & Jerry',
     rating: 78,
-    duration: '25 minutes'
+    duration: '25m'
   }
 ]
 
