@@ -6,6 +6,24 @@ import { Movieform, Movieslist, Search } from './components'
 
 const title = 'Favorite Movie Directory'
 
+const DATA = [
+  {
+    name: 'The Godfather',
+    rating: 95,
+    duration: '3 hours'
+  },
+  {
+    name: 'Friends',
+    rating: 90,
+    duration: '16 hours'
+  },
+  {
+    name: 'Tom & Jerry',
+    rating: 78,
+    duration: '25 minutes'
+  }
+]
+
 function App() {
 
   return (
