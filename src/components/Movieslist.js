@@ -12,6 +12,7 @@ function Movieslist({movies}) {
       >
           {movies.map(movie => (
               <li
+                  key={movie.id}
                   className='flex slide-up-fade-in justify-content-between'
                   style={{borderBottom: '2px solid var(--primary-color)'}}
               >

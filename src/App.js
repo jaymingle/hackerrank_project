@@ -14,13 +14,13 @@ const DATA = [
     duration: '3 hours'
   },
   {
-    id: 1,
+    id: 2,
     name: 'Friends',
     rating: 90,
     duration: '16 hours'
   },
   {
-    id: 1,
+    id: 3,
     name: 'Tom & Jerry',
     rating: 78,
     duration: '25 minutes'
