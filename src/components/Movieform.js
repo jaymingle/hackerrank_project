@@ -28,8 +28,14 @@ function Movieform({addMovie}) {
       duration: movieDuration
     }
 
-    addMovie(movie)
-    console.log('Movie form',movie)
+    if(movieName || movieRating || movieDuration) {
+      addMovie(movie)
+      console.log('Movie form',movie)
+    }
+
+    if(!movieName || !movieRating || !movieDuration) {
+      alert('Fill all form fields')
+    }
 
     setMovieName('')
     setMovieRating('')
@@ -37,7 +43,6 @@ function Movieform({addMovie}) {
 
   }
 
-  console.log('MovieForm')
 
   return (
     <section>
