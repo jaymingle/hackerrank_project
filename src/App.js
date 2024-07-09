@@ -31,10 +31,10 @@ const DATA = [
 function App() {
 
   const [movies, setMovies] = useState(DATA)
-  console.log(movies)
-  console.log('A: ', uuidv4())
-  console.log('B: ', uuidv4())
-  console.log('C: ', uuidv4())
+  // console.log(movies)
+  // console.log('A: ', uuidv4())
+  // console.log('B: ', uuidv4())
+  // console.log('C: ', uuidv4())
 
   return (
     <div>

@@ -28,6 +28,8 @@ function Movieform() {
       duration: movieDuration
     }
 
+    console.log(movie)
+
   }
 
   console.log('MovieForm')
