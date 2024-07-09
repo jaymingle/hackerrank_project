@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 function Movieform() {
 
   const [movieName, setMovieName] = useState('')
-  const [movieRating, setMovieRating] = useState()
+  const [movieRating, setMovieRating] = useState(0)
   const [movieDuration, setMovieDuration] = useState('')
 
 
@@ -30,6 +30,10 @@ function Movieform() {
 
     console.log(movie)
 
+    setMovieName('')
+    setMovieRating('')
+    setMovieDuration('')
+
   }
 
   console.log('MovieForm')
@@ -42,6 +46,7 @@ function Movieform() {
             <label htmlFor='name' className='mb-3'>Movie Name</label>
             <input
                 onChange={movieNameHandler}
+                value={movieName}
               type='text' 
               id='name'
               placeholder='Enter Movie Name'
@@ -52,6 +57,7 @@ function Movieform() {
             <label htmlFor='ratings' className='mb-3'>Ratings</label>
             <input
                 onChange={movieRatingHandler}
+                value={movieRating}
               type='number' 
               id='ratings'
               placeholder='Enter Rating on a scale of 1 to 100'
@@ -62,6 +68,7 @@ function Movieform() {
             <label htmlFor='duration' className='mb-3'>Duration</label>
             <input
                 onChange={movieDurationHandler}
+                value={movieDuration}
               type='text' 
               id='duration'
               placeholder='Enter duration in hours or minutes'
