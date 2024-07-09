@@ -36,7 +36,7 @@ function App() {
   const addMovie = movie => {
     console.log('App',movie)
     setMovies(movies => {
-      return [...movies, {id: uuidv4(), movie: movie.movie, rating: movie.rating, duration: movie.duration}]
+      return [...movies, {id: uuidv4(), name: movie.movie, rating: movie.rating, duration: movie.duration}]
     })
 
     console.log('New Movies + Added', movies)
