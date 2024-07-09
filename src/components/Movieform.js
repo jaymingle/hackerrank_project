@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function Movieform() {
+function Movieform({addMovie}) {
 
   const [movieName, setMovieName] = useState('')
   const [movieRating, setMovieRating] = useState(0)
@@ -28,6 +28,7 @@ function Movieform() {
       duration: movieDuration
     }
 
+    addMovie(movie)
     console.log('Movie form',movie)
 
     setMovieName('')
