@@ -28,7 +28,7 @@ function Movieform() {
       duration: movieDuration
     }
 
-    console.log(movie)
+    console.log('Movie form',movie)
 
     setMovieName('')
     setMovieRating('')

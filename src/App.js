@@ -36,6 +36,10 @@ function App() {
   // console.log('B: ', uuidv4())
   // console.log('C: ', uuidv4())
 
+  const addMovie = movie => {
+    console.log('App',movie)
+  }
+
   return (
     <div>
       <h8k-navbar header={ title } />
