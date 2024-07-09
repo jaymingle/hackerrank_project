@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import {v4 as uuidv4} from 'uuid'
 import './App.css'
 import 'h8k-components'
 
@@ -31,6 +32,9 @@ function App() {
 
   const [movies, setMovies] = useState(DATA)
   console.log(movies)
+  console.log('A: ', uuidv4())
+  console.log('B: ', uuidv4())
+  console.log('C: ', uuidv4())
 
   return (
     <div>

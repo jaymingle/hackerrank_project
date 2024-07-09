@@ -9,21 +9,25 @@ function Movieform() {
 
   const movieNameHandler = e => {
     setMovieName(e.target.value)
-    console.log(movieName)
   }
 
   const movieRatingHandler = e => {
     setMovieRating(e.target.value)
-    console.log(movieRating)
   }
 
   const movieDurationHandler = e => {
     setMovieDuration(e.target.value)
-    console.log(movieDuration)
   }
 
   const formSubmitHandler = e => {
     e.preventDefault()
+
+    const movie = {
+      movie: movieName,
+      rating: movieRating,
+      duration: movieDuration
+    }
+
   }
 
   console.log('MovieForm')
