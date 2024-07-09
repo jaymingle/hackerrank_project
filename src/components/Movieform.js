@@ -6,6 +6,22 @@ function Movieform() {
   const [movieRating, setMovieRating] = useState()
   const [movieDuration, setMovieDuration] = useState('')
 
+
+  const movieNameHandler = e => {
+    setMovieName(e.target.value)
+    console.log(movieName)
+  }
+
+  const movieRatingHandler = e => {
+    setMovieRating(e.target.value)
+    console.log(movieRating)
+  }
+
+  const movieDurationHandler = e => {
+    setMovieDuration(e.target.value)
+    console.log(movieDuration)
+  }
+
   const formSubmitHandler = e => {
     e.preventDefault()
   }
@@ -15,10 +31,11 @@ function Movieform() {
   return (
     <section>
       <div className='card pa-30'>
-        <form onSubmit={ e => e.preventDefault() }>
+        <form onSubmit={formSubmitHandler}>
           <div className='layout-column mb-15'>
             <label htmlFor='name' className='mb-3'>Movie Name</label>
-            <input 
+            <input
+                onChange={movieNameHandler}
               type='text' 
               id='name'
               placeholder='Enter Movie Name'
@@ -27,7 +44,8 @@ function Movieform() {
           </div>
           <div className='layout-column mb-15'>
             <label htmlFor='ratings' className='mb-3'>Ratings</label>
-            <input 
+            <input
+                onChange={movieRatingHandler}
               type='number' 
               id='ratings'
               placeholder='Enter Rating on a scale of 1 to 100'
@@ -36,7 +54,8 @@ function Movieform() {
           </div>
           <div className='layout-column mb-30'>
             <label htmlFor='duration' className='mb-3'>Duration</label>
-            <input 
+            <input
+                onChange={movieDurationHandler}
               type='text' 
               id='duration'
               placeholder='Enter duration in hours or minutes'
