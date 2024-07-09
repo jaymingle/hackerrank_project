@@ -31,6 +31,7 @@ const DATA = [
 function App() {
 
   const [movies, setMovies] = useState(DATA)
+  console.log('Intial Movies', movies)
   // console.log(movies)
   // console.log('A: ', uuidv4())
   // console.log('B: ', uuidv4())
@@ -38,6 +39,11 @@ function App() {
 
   const addMovie = movie => {
     console.log('App',movie)
+    setMovies(movies => {
+      return [...movies, {id: uuidv4(), movie: movie.movie, rating: movie.rating, duration: movie.duration}]
+    })
+
+    console.log('New Movies + Added', movies)
   }
 
   return (
@@ -45,7 +51,7 @@ function App() {
       <h8k-navbar header={ title } />
       <div className='layout-row justify-content-center mt-100'>
         <div className='w-30 mr-75'>
-          <Movieform addMovie={movie} />
+          <Movieform addMovie={addMovie} />
         </div>
         <div className='layout-column w-30'>
           <Search />
