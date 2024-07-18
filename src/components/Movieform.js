@@ -66,6 +66,8 @@ function Movieform({addMovie}) {
                 value={movieRating}
               type='number' 
               id='ratings'
+                min="1"
+                max="100"
               placeholder='Enter Rating on a scale of 1 to 100'
               data-testid='ratingsInput'
             />
