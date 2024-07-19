@@ -2,8 +2,7 @@ import React, {useState} from 'react'
 
 function Search({movies}) {
 
-    console.log('Search List: ', movies)
-
+    // console.log('Search List: ', movies)
     const [search, setSearch] = useState('')
 
     const searchHandler = e => {

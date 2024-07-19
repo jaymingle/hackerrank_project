@@ -40,7 +40,6 @@ function Movieform({addMovie}) {
     setMovieName('')
     setMovieRating('')
     setMovieDuration('')
-
   }
 
 

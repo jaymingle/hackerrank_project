@@ -31,7 +31,7 @@ const DATA = [
 function App() {
 
   const [movies, setMovies] = useState(DATA)
-  console.log('Intial Movies', movies)
+  console.log('Initial Movies', movies)
 
   const addMovie = movie => {
     console.log('App',movie)
