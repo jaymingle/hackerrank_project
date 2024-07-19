@@ -5,6 +5,7 @@ function Movieform({addMovie}) {
   const [movieName, setMovieName] = useState('')
   const [movieRating, setMovieRating] = useState(0)
   const [movieDuration, setMovieDuration] = useState('')
+  const [error, setError] = useState('')
 
 
   const movieNameHandler = e => {
@@ -19,8 +20,56 @@ function Movieform({addMovie}) {
     setMovieDuration(e.target.value)
   }
 
+  const clearError = () => {
+    if (error) {
+      setError('');
+    }
+  };
+
+  const validateDuration = duration => {
+    const minutesPattern = /^(\d+)(m)$/;
+    const hoursPattern = /^(\d+(\.\d+)?)h$/;
+
+    if (minutesPattern.test(duration)) {
+      return 'minutes';
+    } else if (hoursPattern.test(duration)) {
+      return 'hours';
+    } else {
+      return null;
+    }
+  };
+
+  const convertMinutesToHours = minutes => {
+    const hours = Math.floor(minutes / 60);
+    const remainderMinutes = minutes % 60;
+    return `${hours + remainderMinutes / 60} Hrs`;
+  };
+
+
   const formSubmitHandler = e => {
     e.preventDefault()
+
+    const durationType = validateDuration(movieDuration);
+
+    if(movieName || movieRating || movieDuration) {
+      console.log('Movie form',movie)
+    }
+
+    if(!movieName || !movieRating || !movieDuration) {
+      setError('Fill all form fields');
+      return;
+    }
+
+    if (!durationType) {
+      setError('Please specify the time in hours or minutes (e.g. 2.5h or 150m)');
+      return;
+    }
+
+    let durationDisplay = movieDuration;
+    if (durationType === 'minutes') {
+      const minutes = parseInt(movieDuration, 10);
+      durationDisplay = convertMinutesToHours(minutes);
+    }
 
     const movie = {
       movie: movieName,
@@ -28,14 +77,7 @@ function Movieform({addMovie}) {
       duration: movieDuration
     }
 
-    if(movieName || movieRating || movieDuration) {
-      addMovie(movie)
-      console.log('Movie form',movie)
-    }
-
-    if(!movieName || !movieRating || !movieDuration) {
-      alert('Fill all form fields')
-    }
+    addMovie(movie);
 
     setMovieName('')
     setMovieRating('')

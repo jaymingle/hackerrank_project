@@ -40,14 +40,14 @@ function App() {
     setSearchConducted(true)
   }
 
-  console.log('Initial Movies', movies)
+  // console.log('Initial Movies', movies)
 
   const addMovie = movie => {
-    console.log('App',movie)
+    // console.log('App',movie)
     setMovies(movies => {
       return [...movies, {id: uuidv4(), name: movie.movie, rating: movie.rating, duration: movie.duration}]
     })
-    console.log('New Movies + Added', movies)
+    // console.log('New Movies + Added', movies)
   }
 
   return (
@@ -60,10 +60,9 @@ function App() {
         <div className='layout-column w-30'>
           <Search movies={movies} searchFilteredMovies={searchFilteredMovies} />
           <Movieslist movies={movies} />
+
           <div data-testid='noResult'>
-
-            {searchConducted && filteredMovie.length === 0 ? <h3 className='text-center'>No Results Found</h3> : filteredMovie.map(movie => <li key={movie.id}>{movie.name}</li>)}
-
+            {searchConducted && filteredMovie.length === 0 ? <h3 className='text-center'>No Results Found</h3> : filteredMovie.map(movie => <li style={{listStyleType: 'none', color: 'green'}} key={movie.id}>{movie.name}</li>)}
           </div>
         </div>
       </div> 
