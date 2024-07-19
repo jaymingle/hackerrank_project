@@ -34,6 +34,7 @@ function App() {
   const [filteredMovie, setFilteredMovie] = useState([])
 
   const searchFilteredMovies = theFilteredMovie => {
+    setFilteredMovie(theFilteredMovie)
     console.log('From the App.js', theFilteredMovie)
   }
 
@@ -58,6 +59,8 @@ function App() {
           <Search movies={movies} searchFilteredMovies={searchFilteredMovies} />
           <Movieslist movies={movies} />
           <div data-testid='noResult'>
+
+            {filteredMovie.map(movie => <li key={movie.id}>{movie.name}</li>)}
             <h3 className='text-center'>No Results Found</h3>
           </div>
         </div>

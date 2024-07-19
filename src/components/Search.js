@@ -2,9 +2,7 @@ import React, {useState} from 'react'
 
 function Search({movies, searchFilteredMovies}) {
 
-    // console.log('Search List: ', movies)
     const [search, setSearch] = useState('')
-    const [filteredMovies, setFilteredMovies] = useState([])
 
     const searchHandler = e => {
         const searchValue = e.target.value
@@ -14,12 +12,10 @@ function Search({movies, searchFilteredMovies}) {
         if(searchValue.length >= 2){
             const filtered = movies.filter(movie => movie.name.toLowerCase().includes(searchValue.toLowerCase())
             )
-            setFilteredMovies(filtered)
             searchFilteredMovies(filtered)
         }else{
-            setFilteredMovies([])
+            searchFilteredMovies([])
         }
-        console.log('Filtered Movies: ', filteredMovies)
     }
 
   return (
