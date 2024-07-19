@@ -50,7 +50,7 @@ function App() {
           <Movieform addMovie={addMovie} />
         </div>
         <div className='layout-column w-30'>
-          <Search />
+          <Search movies={movies} />
           <Movieslist movies={movies} />
           <div data-testid='noResult'>
             <h3 className='text-center'>No Results Found</h3>

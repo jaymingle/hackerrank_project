@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 
-function Search() {
+function Search({movies}) {
+
+    console.log('Search List: ', movies)
 
     const [search, setSearch] = useState('')
 
