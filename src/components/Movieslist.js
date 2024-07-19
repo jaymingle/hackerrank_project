@@ -23,7 +23,7 @@ function Movieslist({movies}) {
                   </div>
                   <div className='layout-row my-auto mr-20'>
                       {/* use this paragraph for movie duration, for example: '2.5 Hrs' */}
-                      <p className='justify-content-end'>{movie.duration} Hrs</p>
+                      <p className='justify-content-end'>{movie.duration} </p>
                   </div>
               </li>
           ))}

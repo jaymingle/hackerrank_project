@@ -1,24 +1,25 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react';
 
-function Movieform({addMovie}) {
-
-  const [movieName, setMovieName] = useState('')
-  const [movieRating, setMovieRating] = useState(0)
-  const [movieDuration, setMovieDuration] = useState('')
-  const [error, setError] = useState('')
-
+function Movieform({ addMovie }) {
+  const [movieName, setMovieName] = useState('');
+  const [movieRating, setMovieRating] = useState('');
+  const [movieDuration, setMovieDuration] = useState('');
+  const [error, setError] = useState('');
 
   const movieNameHandler = e => {
-    setMovieName(e.target.value)
-  }
+    setMovieName(e.target.value);
+    clearError();
+  };
 
   const movieRatingHandler = e => {
-    setMovieRating(e.target.value)
-  }
+    setMovieRating(e.target.value);
+    clearError();
+  };
 
   const movieDurationHandler = e => {
-    setMovieDuration(e.target.value)
-  }
+    setMovieDuration(e.target.value);
+    clearError();
+  };
 
   const clearError = () => {
     if (error) {
@@ -45,17 +46,12 @@ function Movieform({addMovie}) {
     return `${hours + remainderMinutes / 60} Hrs`;
   };
 
-
   const formSubmitHandler = e => {
-    e.preventDefault()
+    e.preventDefault();
 
     const durationType = validateDuration(movieDuration);
 
-    if(movieName || movieRating || movieDuration) {
-      console.log('Movie form',movie)
-    }
-
-    if(!movieName || !movieRating || !movieDuration) {
+    if (!movieName || !movieRating || !movieDuration) {
       setError('Fill all form fields');
       return;
     }
@@ -74,76 +70,74 @@ function Movieform({addMovie}) {
     const movie = {
       movie: movieName,
       rating: movieRating,
-      duration: movieDuration
-    }
+      duration: durationDisplay,
+    };
 
     addMovie(movie);
+    console.log('Movie form', movie);
 
-    setMovieName('')
-    setMovieRating('')
-    setMovieDuration('')
-  }
-
+    setMovieName('');
+    setMovieRating('');
+    setMovieDuration('');
+  };
 
   return (
-    <section>
-      <div className='card pa-30'>
-        <form onSubmit={formSubmitHandler}>
-          <div className='layout-column mb-15'>
-            <label htmlFor='name' className='mb-3'>Movie Name</label>
-            <input
-                onChange={movieNameHandler}
-                value={movieName}
-              type='text' 
-              id='name'
-              placeholder='Enter Movie Name'
-              data-testid='nameInput'
-            />
-          </div>
-          <div className='layout-column mb-15'>
-            <label htmlFor='ratings' className='mb-3'>Ratings</label>
-            <input
-                onChange={movieRatingHandler}
-                value={movieRating}
-              type='number' 
-              id='ratings'
-                min="1"
-                max="100"
-              placeholder='Enter Rating on a scale of 1 to 100'
-              data-testid='ratingsInput'
-            />
-          </div>
-          <div className='layout-column mb-30'>
-            <label htmlFor='duration' className='mb-3'>Duration</label>
-            <input
-                onChange={movieDurationHandler}
-                value={movieDuration}
-              type='text' 
-              id='duration'
-              placeholder='Enter duration in hours or minutes'
-              data-testid='durationInput'
-            />
-          </div>
-          {/* Use this div when time format is invalid */}
-          {/* <div 
-            className='alert error mb-30'
-            data-testid='alert'
-          >
-            Please specify time in hours or minutes (e.g. 2.5h or 150m)
-          </div>  */}
-          <div className='layout-row justify-content-end'>
-            <button 
-              type='submit'
-              className='mx-0'
-              data-testid='addButton'
-            >
-              Add Movie
-            </button>
-          </div>
+      <section>
+        <div className='card pa-30'>
+          <form onSubmit={formSubmitHandler}>
+            <div className='layout-column mb-15'>
+              <label htmlFor='name' className='mb-3'>Movie Name</label>
+              <input
+                  onChange={movieNameHandler}
+                  value={movieName}
+                  type='text'
+                  id='name'
+                  placeholder='Enter Movie Name'
+                  data-testid='nameInput'
+              />
+            </div>
+            <div className='layout-column mb-15'>
+              <label htmlFor='ratings' className='mb-3'>Ratings</label>
+              <input
+                  onChange={movieRatingHandler}
+                  value={movieRating}
+                  type='number'
+                  id='ratings'
+                  min='1'
+                  max='100'
+                  placeholder='Enter Rating on a scale of 1 to 100'
+                  data-testid='ratingsInput'
+              />
+            </div>
+            <div className='layout-column mb-30'>
+              <label htmlFor='duration' className='mb-3'>Duration</label>
+              <input
+                  onChange={movieDurationHandler}
+                  value={movieDuration}
+                  type='text'
+                  id='duration'
+                  placeholder='Enter duration in hours or minutes'
+                  data-testid='durationInput'
+              />
+              {error && (
+                  <div className='alert error mb-30' data-testid='alert'>
+                    {error}
+                  </div>
+              )}
+            </div>
+            <div className='layout-row justify-content-end'>
+              <button
+                  type='submit'
+                  className='mx-0'
+                  data-testid='addButton'
+              >
+                Add Movie
+              </button>
+            </div>
           </form>
-      </div> 
-    </section>
-  )
+        </div>
+      </section>
+  );
 }
 
-export default Movieform
+export default Movieform;
