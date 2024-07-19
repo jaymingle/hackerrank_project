@@ -31,6 +31,10 @@ function Search({movies}) {
         className='w-75 py-2'
         data-testid='search'
       />
+        <ul>
+            {filteredMovies.map(movie =>
+                <li key={movie.id}>{movie.name}</li>)}
+        </ul>
     </section>
   )
 }
