@@ -32,10 +32,12 @@ function App() {
 
   const [movies, setMovies] = useState(DATA)
   const [filteredMovie, setFilteredMovie] = useState([])
+  const [searchConducted, setSearchConducted] = useState(false)
 
   const searchFilteredMovies = theFilteredMovie => {
     setFilteredMovie(theFilteredMovie)
     console.log('From the App.js', theFilteredMovie)
+    setSearchConducted(true)
   }
 
   console.log('Initial Movies', movies)
@@ -60,8 +62,8 @@ function App() {
           <Movieslist movies={movies} />
           <div data-testid='noResult'>
 
-            {filteredMovie.map(movie => <li key={movie.id}>{movie.name}</li>)}
-            <h3 className='text-center'>No Results Found</h3>
+            {searchConducted && filteredMovie.length === 0 ? <h3 className='text-center'>No Results Found</h3> : filteredMovie.map(movie => <li key={movie.id}>{movie.name}</li>)}
+
           </div>
         </div>
       </div> 
