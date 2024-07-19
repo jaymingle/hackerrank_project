@@ -4,10 +4,20 @@ function Search({movies}) {
 
     // console.log('Search List: ', movies)
     const [search, setSearch] = useState('')
+    const [filteredMovies, setFilteredMovies] = useState([])
 
     const searchHandler = e => {
-        setSearch(e.target.value)
+        const searchValue = e.target.value
+        setSearch(searchValue)
         console.log(search)
+
+        if(searchValue.length >= 2){
+            const filtered = movies.filter(movie => movie.name.toLowerCase().includes(searchValue.toLowerCase()))
+            setFilteredMovies(filtered)
+        }else{
+            setFilteredMovies([])
+        }
+        console.log(filteredMovies)
     }
 
   return (
