@@ -31,6 +31,12 @@ const DATA = [
 function App() {
 
   const [movies, setMovies] = useState(DATA)
+  const [filteredMovie, setFilteredMovie] = useState([])
+
+  const searchFilteredMovies = theFilteredMovie => {
+    console.log('From the App.js', theFilteredMovie)
+  }
+
   console.log('Initial Movies', movies)
 
   const addMovie = movie => {
@@ -38,7 +44,6 @@ function App() {
     setMovies(movies => {
       return [...movies, {id: uuidv4(), name: movie.movie, rating: movie.rating, duration: movie.duration}]
     })
-
     console.log('New Movies + Added', movies)
   }
 
@@ -50,7 +55,7 @@ function App() {
           <Movieform addMovie={addMovie} />
         </div>
         <div className='layout-column w-30'>
-          <Search movies={movies} />
+          <Search movies={movies} searchFilteredMovies={searchFilteredMovies} />
           <Movieslist movies={movies} />
           <div data-testid='noResult'>
             <h3 className='text-center'>No Results Found</h3>

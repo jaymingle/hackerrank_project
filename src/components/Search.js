@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function Search({movies}) {
+function Search({movies, searchFilteredMovies}) {
 
     // console.log('Search List: ', movies)
     const [search, setSearch] = useState('')
@@ -15,6 +15,7 @@ function Search({movies}) {
             const filtered = movies.filter(movie => movie.name.toLowerCase().includes(searchValue.toLowerCase())
             )
             setFilteredMovies(filtered)
+            searchFilteredMovies(filtered)
         }else{
             setFilteredMovies([])
         }
@@ -31,10 +32,6 @@ function Search({movies}) {
         className='w-75 py-2'
         data-testid='search'
       />
-        <ul>
-            {filteredMovies.map(movie =>
-                <li key={movie.id}>{movie.name}</li>)}
-        </ul>
     </section>
   )
 }
