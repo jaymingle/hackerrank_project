@@ -9,15 +9,16 @@ function Search({movies}) {
     const searchHandler = e => {
         const searchValue = e.target.value
         setSearch(searchValue)
-        console.log(search)
+        console.log(searchValue)
 
         if(searchValue.length >= 2){
-            const filtered = movies.filter(movie => movie.name.toLowerCase().includes(searchValue.toLowerCase()))
+            const filtered = movies.filter(movie => movie.name.toLowerCase().includes(searchValue.toLowerCase())
+            )
             setFilteredMovies(filtered)
         }else{
             setFilteredMovies([])
         }
-        console.log(filteredMovies)
+        console.log('Filtered Movies: ', filteredMovies)
     }
 
   return (
